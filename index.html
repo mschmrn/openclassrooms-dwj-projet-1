@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+
+<!-- HEAD -->
+	<head> 
+
+		<!-- Balises META -->
+		<meta charset="utf-8">
+		<meta name=description content="Web Agency, l'agence de tous vos projets" />
+		<meta name="robots" content="index,follow" />
+
+		<!-- Viewport -->
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+		<!-- Favicon -->
+		<link rel="shortcut icon" type="image/png" href="images/ico/favicon.ico" />
+
+		<!-- Balises Social Media -->
+
+		<!-- Open Graph data -->
+		<meta property="og:title" content="Title Here" />
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content="http://www.example.com/" />
+		<meta property="og:image" content="http://example.com/image.jpg" />
+		<meta property="og:description" content="Web Agency, l'agence de tous vos projets" />
+
+		<!-- CSS -->
+		<link rel="stylesheet" href="style-min.css" />
+
+		<!-- Polices Googles Fonts -->
+		<link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700,900%7cOpen+Sans:400,700,900%7cRoboto:300,400,700,900" rel="stylesheet">
+
+		<!-- Polices Fontawesome -->
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+
+
+		<title>Web Agency</title>
+
+	</head>
+
+	<!-- BODY -->
+
+	<body>
+
+		<!-- ================================================ HEADER ================================================ -->
+
+		<header>
+		
+			<nav>
+
+				<img src="images/logo.png" class="logo" alt="Web Agency logo" />
+				
+				<input type="checkbox" id="isexpanded">
+
+				<ul class="expandable">
+					<li><a href="#accueil">Accueil</a></li>
+					<li><a href="#services">Services</a></li>
+					<li><a href="#portfolio">Portfolio</a></li>
+					<li><a href="#contact">Contact</a></li>
+				</ul>
+
+				<label id="expand-btn" for="isexpanded"><i class="fas fa-bars"></i></label>
+
+			</nav>
+			
+		</header>
+
+		<!-- ================================================ ACCUEIL ================================================ -->
+
+		<section id="accueil">
+
+			<div class="slider-container">
+  				
+				<!-- Utiliser des boutons de type "radio" pour passer d'une slide à l'autre puis masquer ces boutons -->
+  				<input type="radio" name="slider" value="previous" id="btn-prv" />
+  					<label for="btn-prv"><i class="fas fa-chevron-left" id="prv"></i>
+  					</label>
+
+				<input type="radio" name="slider" value="next" id="btn-nxt" />
+					<label for="btn-nxt"><i class="fas fa-chevron-right" id="nxt"></i>
+					</label>
+
+				<div class="slides">
+					<img class="slide" src="images/slider/bg1.jpg" alt=""/>
+					<img class="slide" src="images/slider/bg2.jpg" alt=""/>
+				</div>
+			
+				<div class="slidebox">
+					<h1><strong>Webagency</strong> - L'agence de tous vos projets !</h1>
+					<p>Vous avez un projet web ? La WebAgency vous aide à le réaliser !</p>
+					<a href="#contact" class="btn">Plus d'infos</a>
+				</div>
+
+				<div class="barrenav">
+				</div>
+
+			</div>
+
+		</section> 
+
+		<!-- ================================================ SERVICES ================================================ -->
+
+		<section id="services">
+			
+			<header>
+				<h2>Nos services</h2>
+				<div class="ball"><hr></div>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
+			</header>
+			
+			<div id="content">
+
+				<div class="laptop">
+					<img src="images/main-feature.png" alt="" />
+				</div>
+
+				<div class="details">
+
+						<div id="ux" class="container">
+							<span class="icon"><i class="fas fa-chart-line"></i></span>
+							<div class="text">
+								<h3>UX design</h3>
+								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sed odio ac justo semper lobortis fringilla nec lacus. </p>
+							</div>
+						</div>
+
+						<div id="ui" class="container">
+							<span class="icon"><i class="fa fa-chart-pie"></i></span>
+							<div class="text">
+								<h3>UI design</h3>
+								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sed odio ac justo semper lobortis fringilla nec lacus.</p>
+							</div>
+						</div>
+
+						<div id="seo" class="container">
+							<span class="icon"><i class="fa fa-cubes"></i></span>
+							<div class="text">
+								<h3>SEO</h3>
+								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sed odio ac justo semper lobortis fringilla nec lacus.</p>
+							</div>
+						</div>
+
+				</div>
+			</div>
+
+		</section>
+
+		<!-- ================================================ PORTFOLIO ================================================ -->
+
+		<section id="portfolio">
+
+			<header>
+				<h2>Nos projets</h2>
+				<div class="ball"><hr></div>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
+			</header>
+
+			<!-- Figure -->
+			
+			<div id="samples">
+
+				<input type="radio" name="projects" value="all" id="allworks" checked/>
+				<input type="radio" name="projects" value="crea" id="creative" />
+				<input type="radio" name="projects" value="corpo" id="corporate" />
+				<input type="radio" name="projects" value="dossier" id="presentations" />
+
+				<div id="labels">
+					<label for="allworks">All Works</label>
+					<label for="creative">Creative</label>
+					<label for="corporate">Corporate</label>
+					<label for="presentations">Portfolio</label>
+				</div>
+
+				<div id="figures">
+					
+					<figure class="creative">
+						<img src="images/portfolio/01.jpg" alt="" />
+						<span class="picto"><i class="fas fa-eye"></i></span>
+						<figcaption>
+							<h3>Portfolio Item 1</h3>
+							<em>Lorem Ipsum Dolor Sit</em>
+						</figcaption>
+					</figure>
+
+					<figure class="presentations">
+						<img src="images/portfolio/02.jpg" alt="" />
+						<span class="picto"><i class="fas fa-eye"></i></span>
+						<figcaption>
+							<h3>Portfolio Item 2</h3>
+							<em>Lorem Ipsum Dolor Sit</em>
+						</figcaption>
+					</figure>
+
+					<figure class="corporate">
+						<img src="images/portfolio/03.jpg" alt="" />
+						<span class="picto"><i class="fas fa-eye"></i></span>
+						<figcaption>
+							<h3>Portfolio Item 3</h3>
+							<em>Lorem Ipsum Dolor Sit</em>
+						</figcaption>
+					</figure>
+
+					<figure class="creative">
+						<img src="images/portfolio/04.jpg" alt="" />
+						<span class="picto"><i class="fas fa-eye"></i></span>
+						<figcaption>
+							<h3>Portfolio Item 4</h3>
+							<em>Lorem Ipsum Dolor Sit</em>
+						</figcaption>
+					</figure>
+
+					<figure class="presentations">
+						<img src="images/portfolio/05.jpg" alt="" />
+						<span class="picto"><i class="fas fa-eye"></i></span>
+						<figcaption>
+							<h3>Portfolio Item 5</h3>
+							<em>Lorem Ipsum Dolor Sit</em>
+						</figcaption>
+					</figure>
+
+					<figure class="corporate">
+						<img src="images/portfolio/06.jpg" alt="" />
+						<span class="picto"><i class="fas fa-eye"></i></span>
+						<figcaption>
+							<h3>Portfolio Item 6</h3>
+							<em>Lorem Ipsum Dolor Sit</em>
+						</figcaption>
+					</figure>
+
+					<figure class="creative">
+						<img src="images/portfolio/07.jpg" alt="" />
+						<span class="picto"><i class="fas fa-eye"></i></span>
+						<figcaption>
+							<h3>Portfolio Item 7</h3>
+							<em>Lorem Ipsum Dolor Sit</em>
+						</figcaption>
+					</figure>
+
+					<figure class="presentations">
+						<img src="images/portfolio/08.jpg" alt="" />
+						<span class="picto"><i class="fas fa-eye"></i></span>
+						<figcaption>
+							<h3>Portfolio Item 8</h3>
+							<em>Lorem Ipsum Dolor Sit</em>
+						</figcaption>
+					</figure>
+				</div>
+
+			</div>
+
+		</section>
+
+		<!-- ================================================ CONTACT ================================================ -->
+
+		<section id="contact">
+			
+			<div class="contact">
+
+				<div class="contactform" tabindex="0">
+					<header>
+						<h4>Contact Info</h4>
+						<strong>WebAgency SAS</strong>
+						<p>25 Rue d'Hauteville 75010 Paris</p> 
+						<p>Tel : 01 02 03 04 05</p>
+					</header>
+
+					<form method="post" action="traitement.php">
+
+						<input type="text" name="nom" id="name" placeholder="Name" maxlength="30" />
+		                <input type="email" name="mail" placeholder="Email" />
+		                <input type="text" name="sujet" id="subject" placeholder="Subject" maxlength="50" />
+		                <textarea name="message" id="message" placeholder="Message"></textarea>
+		                <input type="submit" class="submit" value="Send Message" />
+
+					</form>
+				</div>
+			
+				<div class="contactbox" iframe="0">
+
+					<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d2624.221608594358!2d2.3476369!3d48.8730518!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66e145ccb3091%3A0x9495beee8c96ec27!2s25%20Rue%20d&#39;Hauteville%2C%2075010%20Paris%2C%20France!5e0!3m2!1sfr!2slu!4v1571755846525!5m2!1sfr!2slu"></iframe>
+
+				</div>	
+
+			</div>
+
+		</section>
+
+	</body>
+</html>
