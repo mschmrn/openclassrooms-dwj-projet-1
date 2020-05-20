@@ -4,24 +4,24 @@
 
 *
 {
-border-sizing:border-box;
-margin: 0;
-padding: 0;
-font-family:'Roboto', 'Open Sans', 'sans-serif';
+	border-sizing:border-box;
+	margin: 0;
+	padding: 0;
+	font-family:'Roboto', 'Open Sans', 'sans-serif';
 }
 
 /* Options de sélection du texte */
 
 ::-moz-selection 
-	{
-  color: white;
-  background-color: gold;
-	}
+{
+	color: white;
+	background-color: gold;
+}
 ::selection 
-	{
-  color: white;
-  background-color: gold;
-	} 
+{
+	color: white;
+	background-color: gold;
+} 
 
 html
 {
@@ -614,7 +614,7 @@ hr:after
 
 	position:relative;
 	width:100px;
-	min-height:34px;
+	height:34px;
 	border:none;
 	color:#65696e;
 	font-size:0.9em;
@@ -655,9 +655,7 @@ hr:after
 	height:0; 
 	border-left:8px solid transparent;
 	border-right:8px solid transparent;
-
 	border-top:8px solid #498cab;
-	color:black;
 }
 
 #figures
@@ -689,8 +687,7 @@ figure::after
   content:"";
   display:block;
   position:absolute;
-  background-color: gold;
-  color:blue;
+  background-color: rgba(0,0,0,0.7);
   width:100%;
   height:0px;
   left:0px;
@@ -805,16 +802,17 @@ figure:hover > figcaption
 {
 	position:relative;
 	padding:0;
-	margin:0
+	margin:0;
+	border:none;
 }
 
-.contactbox
+.map
 {
 	position:relative;
 	width:100%;
 }
 
-.contactbox::after
+.map::after
 {
 	content:"";
 	position:absolute;
@@ -826,12 +824,19 @@ figure:hover > figcaption
 	background-color:rgba(52,145,178,0.4);	
 	pointer-events: none;
 	opacity:0.4;
+	z-index:1;
 }
 
 iframe
-{	width:100%;
+{	
+	width:100%;
 	height:700px;
-	opacity:0.8;	
+	border:none;
+	opacity:0.8;
+	appearance:none;
+	-moz-appearance:none;
+	-webkit-appearance:none;
+	outline:none;
 }
 
 .contactform
@@ -930,7 +935,6 @@ input:focus
 
 input:not(:focus):invalid 
 {
-    /*background-color: #b20a37;*/
     border: 2px solid #b20a37;
     animation: headshake 100ms cubic-bezier(.4,.1,.6,.9) 2;
 }
@@ -945,6 +949,12 @@ input:not(:focus):invalid
     {
         transform: translateX(-1%);
     }
+}
+
+input[type="submit"]
+{
+	appearance:normal;
+	-webkit-appearance: none;
 }
 
 .submit
@@ -1271,6 +1281,10 @@ input:not(:focus):invalid
 		margin:0;
 	}
 
+	#portfolio label:hover::after
+	{
+		left:42%;
+	}
 
 	/********** CONTACT **********/
 
@@ -1281,9 +1295,19 @@ input:not(:focus):invalid
 		top:15%; 
 	}
 	
-	.contactbox:focus ~ .contactform
+	.map:focus ~ .contactform
 	{
 		opacity:0;
+	}
+
+	.map:not(:focus) ~ .contactform
+	{
+		opacity:1;
+	}
+
+	.submit
+	{
+		opacity:1;
 	}
 
 }
@@ -1555,6 +1579,10 @@ input:not(:focus):invalid
 		margin:0;
 	}
 
+	#portfolio label:hover::after
+	{
+		left:42%;
+	}
 
 	/********** CONTACT **********/
 
@@ -1563,6 +1591,11 @@ input:not(:focus):invalid
 		position:absolute;
 		right:25%;
 		top:15%; 
+	}
+
+	.submit
+	{
+		opacity:1;
 	}
 
 }
@@ -1574,6 +1607,7 @@ input:not(:focus):invalid
 /* Nouvelles règles si la fenêtre fait au plus 480px de large */
 @media all and (min-width:380px) and (max-width: 480px)
 {
+
 		header > h2
 		{
 			font-size:2.2em;
@@ -1583,7 +1617,7 @@ input:not(:focus):invalid
 		
 		.logo
 		{
-			flex-shrink:1;
+			flex-shrink:0;
 			width:50%;
 			height:auto;
 		}
@@ -1591,16 +1625,18 @@ input:not(:focus):invalid
 		body > header
 		{
 			display:flex;
-			flex-flow:row wrap;
+			flex-flow:row nowrap;
 			justify-content:flex-start;
 
 			background-color: rgb(254, 254, 254);
 			border-bottom:2px solid rgba(52,145,178,0.3);
-			position:fixed;
-			width:100%;
-			height:90px;
 
+			position:sticky;
 			z-index:3;
+
+			width:100%;
+			height:80px;
+
 			box-shadow:none;
 		}
 		
@@ -1613,7 +1649,7 @@ input:not(:focus):invalid
 			flex-flow:row nowrap;
 			align-items: center;
 
-			padding:0 2%;
+			padding:0 4%;
 		}
 		
 		#expand-btn
@@ -1623,7 +1659,7 @@ input:not(:focus):invalid
 			display:inline-flex;
 
 			color:#4fa9b4;
-			font-size:2em;	
+			font-size:1.8em;	
 
 			cursor:pointer;
 		}
@@ -1650,6 +1686,7 @@ input:not(:focus):invalid
 
 			top:102%;
 			width:200px;
+			right:2%;
 
 	 		transform: scaleY(0);
 	     	transform-origin: top;
@@ -1679,35 +1716,18 @@ input:not(:focus):invalid
 
 		/********** ACCUEIL **********/
 		
-		#accueil
-		{
-			padding-bottom:15%;
-		}
-
 		/* SLIDER */
 
 		.slider-container
 		{
 			position:relative;
-			overflow:hidden;
-			
-			top:90px;
 			width:100%;
 			height:auto;
 		}
 
-		.slide
-		{
-			display:flex;
-			flex-shrink:0;
-
-
-			width:200%;
-		}
-
 		.slides
 		{	
-			position: relative; /* Important pour pouvoir décaler ensuite sur la gauche */
+			position:relative; /* Important pour pouvoir décaler ensuite sur la gauche */
 
 			display:flex;
 			flex-flow:row nowrap;
@@ -1715,21 +1735,29 @@ input:not(:focus):invalid
 
 		    width:100%; /* 100% x le nombre de slides, ici 2 slides */
 		    height:auto;
-
-		    top:0;
-		    left:0;
 		}
 
+		.slide
+		{
+			display:flex;
+			flex-flow:row nowrap;
+			justify-content:center;
+			min-width:180%;
+			width:200%;
+		}
+
+		.slider-container,
+		.slide
+		{
+			overflow:hidden;
+		}
+
+		.slide:nth-of-type(2),
 		#accueil input,
 		#accueil label,
 		#prv, 
 		#nxt,
 		.barrenav
-		{
-			display:none;
-		}
-
-		.slide:nth-of-type(2)
 		{
 			display:none;
 		}
@@ -1755,7 +1783,6 @@ input:not(:focus):invalid
 
 			padding:1rem 2rem;
 		}
-
 
 		h1 strong
 		{
@@ -1811,6 +1838,7 @@ input:not(:focus):invalid
 		{
 			justify-content:center;
 			width:100%;
+			overflow:hidden;
 		}
 
 		.details
@@ -1853,7 +1881,13 @@ input:not(:focus):invalid
 
 		#portfolio label
 		{
-			max-width:90px;
+			width:90px;
+			border-bottom:3px solid #e5e5e5;
+		}
+
+		#portfolio label:hover::after
+		{
+			left:40%;
 		}
 
 		#portfolio header p
@@ -1878,7 +1912,6 @@ input:not(:focus):invalid
 			margin:0;
 		}
 
-
 		/********** CONTACT **********/
 
 		.contact
@@ -1888,19 +1921,16 @@ input:not(:focus):invalid
 			align-items:center;
 		}
 
-		.contact::after
+		.map::after
 		{
 			display:none;
 		}
 
-		.contactbox
+		.map,
+		iframe
 		{
-			display:flex;
-			flex-flow:row nowrap;
-			justify-content:center;
-			align-items:center;
-			align-content:center;
-			/*background-image:url('https://upload.wikimedia.org/wikipedia/commons/7/74/Paris_department_land_cover_location_map.svg');*/
+			width:100%;
+			height:600px;
 		}
 
 		.contactform
@@ -1916,7 +1946,6 @@ input:not(:focus):invalid
 		{
 			font-size:1.5em;
 		}
-
 
 		input[type="text"],
 		input[type="message"],
@@ -1934,9 +1963,14 @@ input:not(:focus):invalid
 		    animation: none;
 		}
 
+		input[type="submit"]
+		{
+			-webkit-appearance: none;
+		}
+
 		.submit
 		{
-			opacity:1;
+		    opacity:1;
 		}
 
 		.submit:hover
@@ -1947,10 +1981,10 @@ input:not(:focus):invalid
 }
 
 
-
 /* Nouvelles règles si la fenêtre fait au plus 380px de large */
 @media all and (max-width:380px)
-{
+{		
+
 			header > h2
 			{
 				font-size:2.2em;
@@ -1958,10 +1992,9 @@ input:not(:focus):invalid
 
 			/********** HEADER **********/
 			
-				.logo
+			.logo
 			{
-				flex-shrink:1;
-				width:50%;
+				width:40%;
 				height:auto;
 			}
 
@@ -1973,9 +2006,9 @@ input:not(:focus):invalid
 
 				background-color: rgb(254, 254, 254);
 				border-bottom:2px solid rgba(52,145,178,0.3);
-				position:fixed;
+				position:sticky;
 				width:100%;
-				height:90px;
+				height:60px;
 
 				z-index:3;
 				box-shadow:none;
@@ -1990,7 +2023,7 @@ input:not(:focus):invalid
 				flex-flow:row nowrap;
 				align-items: center;
 
-				padding:0 2%;
+				padding:0 4%;
 			}
 			
 			#expand-btn
@@ -2000,7 +2033,7 @@ input:not(:focus):invalid
 				display:inline-flex;
 
 				color:#4fa9b4;
-				font-size:2em;	
+				font-size:1.5em;	
 
 				cursor:pointer;
 			}
@@ -2025,12 +2058,12 @@ input:not(:focus):invalid
 
 				position:absolute;
 
-				right:0;
+				right:2%;
 				top:102%;
-				width:200px;
+				width:50%;
 
 		 		transform: scaleY(0);
-		     	transform-origin: 50% 0;
+		     	transform-origin: 40% 0;
 		    }
 
 			#isexpanded:checked ~ .expandable
@@ -2057,39 +2090,22 @@ input:not(:focus):invalid
 
 			/********** ACCUEIL **********/
 			
-			#accueil
-			{
-				padding-bottom:15%;
-			}
-
 			/* SLIDER */
 
 			.slider-container
 			{
 				position:relative;
-				overflow:hidden;
-				
-				top:90px;
-				width:100%;
 				height:auto;
-			}
-
-			.slide
-			{
-				display:flex;
-				flex-shrink:0;
-
-
-				width:200%;
 			}
 
 			.slides
 			{	
-				position: relative; /* Important pour pouvoir décaler ensuite sur la gauche */
+				position:relative; /* Important pour pouvoir décaler ensuite sur la gauche */
 
 				display:flex;
 				flex-flow:row nowrap;
 				justify-content:center;
+				align-items:center;
 
 			    width:100%; /* 100% x le nombre de slides, ici 2 slides */
 			    height:auto;
@@ -2098,16 +2114,26 @@ input:not(:focus):invalid
 			    left:0;
 			}
 
+			.slide
+			{
+				min-width:195%;
+				width:200%;
+				height:auto;
+			}
+
+			.slide-container,
+			.slides,
+			.slide
+			{
+				overflow:hidden;
+			}
+			
+			.slide:nth-of-type(2),
 			#accueil input,
 			#accueil label,
 			#prv, 
 			#nxt,
 			.barrenav
-			{
-				display:none;
-			}
-
-			.slide:nth-of-type(2)
 			{
 				display:none;
 			}
@@ -2198,7 +2224,14 @@ input:not(:focus):invalid
 			.laptop
 			{
 				justify-content:center;
+				overflow:hidden;
 				width:100%;
+			}
+
+			.laptop img
+			{
+				width:95%;
+				height:95%;
 			}
 
 			.details
@@ -2242,7 +2275,14 @@ input:not(:focus):invalid
 
 			#portfolio label
 			{
-				max-width:75px;
+				width:75px;
+				border:none;
+				border-bottom:3px solid #e5e5e5;
+			}
+
+			#portfolio label:hover::after
+			{
+				left:39%;
 			}
 
 			#portfolio header p
@@ -2275,21 +2315,19 @@ input:not(:focus):invalid
 				display:flex;
 				flex-flow:column nowrap;
 				align-items:center;
+				width:100%;
 			}
 
-			.contact::after
+			.map::after
 			{
 				display:none;
 			}
 
-			.contactbox
+			.map,
+			iframe
 			{
-				display:flex;
-				flex-flow:row nowrap;
-				justify-content:center;
-				align-items:center;
-				align-content:center;
-				/*background-image:url('https://upload.wikimedia.org/wikipedia/commons/7/74/Paris_department_land_cover_location_map.svg');*/
+				width:100%;
+				height:600px;
 			}
 
 			.contactform
@@ -2305,7 +2343,6 @@ input:not(:focus):invalid
 			{
 				font-size:1.5em;
 			}
-
 
 			input[type="text"],
 			input[type="message"],
@@ -2323,9 +2360,15 @@ input:not(:focus):invalid
 			    animation: none;
 			}
 
+			input[type="submit"]
+			{
+				appearance:normal;
+				-webkit-appearance: none;
+			}
+
 			.submit
 			{
-				opacity:1;
+			    opacity:1;
 			}
 
 			.submit:hover
